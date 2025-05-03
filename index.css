@@ -1,0 +1,22 @@
+button {
+  padding: 0.6rem;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+input[type="number"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-color: black;
+}
+
+/* detail */
+#detail_area {
+  min-height: 500px;
+  min-width: 300px;
+}
+
+#detail_area table thead th {
+  color: #fff;
+  background-color: slategray;
+}

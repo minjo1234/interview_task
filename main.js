@@ -26,15 +26,50 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function updateComponent() {
+  makeGraph();
   makeDeleteBox();
   makeDetailBox();
+}
+
+function makeGraph() {
+  const maxValue = Math.max(...datas.map((d) => d.value));
+  const graph = document.getElementById("graph");
+  const yAxis = document.getElementById("y-axis");
+  graph.innerHTML = "";
+  yAxis.innerHTML = "";
+
+  const numTicks = 5;
+  const tickInternal = maxValue / numTicks;
+
+  for (let i = 0; i <= numTicks; i++) {
+    const yTick = document.createElement("div");
+    yTick.className = "y-Tick";
+    yTick.textContent = Math.round(maxValue - tickInternal * i);
+    yAxis.appendChild(yTick);
+  }
+
+  datas.forEach((data) => {
+    const barContainer = document.createElement("div");
+    barContainer.style.width = 100 / datas.length + "%";
+
+    const bar = document.createElement("div");
+    bar.className = "bar";
+    bar.style.height = (data.value / maxValue) * 100 + "%";
+    bar.textContent = data.value;
+
+    const label = document.createElement("div");
+    label.className = "label";
+    label.textContent = data.id;
+
+    barContainer.appendChild(bar);
+    barContainer.appendChild(label);
+    graph.appendChild(barContainer);
+  });
 }
 
 function makeDetailBox() {
   const detail_area = document.getElementById("detail_area");
   detail_area.value = JSON.stringify(datas, null, 2);
-  console.log(datas);
-  console.log(JSON.stringify(datas));
 }
 
 function makeDeleteBox() {
@@ -47,8 +82,8 @@ function makeDeleteBox() {
 
     tr.innerHTML = `
     <td>${data.id}</td>
-    <td>${data.value}</td>
-    <td><button onClick="deleteValue(${data.id})">삭제</button></td>
+    <td><input type="number" value="${data.value}" placeholder="VALUE"/ onchange="updateValue(${data.id}. this.value)></td>
+    <td><span style="color: red; cursor: pointer" onClick="deleteValue(${data.id})">삭제</span></td>
     `;
 
     values_box.appendChild(tr);
@@ -78,4 +113,8 @@ function deleteValue(id) {
     datas = datas.filter((data) => data.id != id);
     updateComponent();
   }
+}
+
+function updateValue(id, value) {
+  console.log(id, value);
 }

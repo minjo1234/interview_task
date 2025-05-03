@@ -10,17 +10,24 @@
   <body></body>
 </html>
 <div>
-  <div class="candidate_box">아이엠파인 SD팀 지원자 조민</div>
+  <div class="candidate_box" style="display: flex">
+    <span style="margin-left: auto; font-size: 2rem"
+      >아이엠파인 SD팀 지원자 조민</span
+    >
+  </div>
 
   <section id="">
     <div class="graph_box">
       <p>1.그래프</p>
       <div style="display: flex">
         <div id="y-axis"></div>
-        <div id="graph"></div>
+        <div class="graph-wrapper">
+          <div id="graph"></div>
+          <div id="x-axis"></div>
+        </div>
       </div>
     </div>
-    <div class="delete_box" style="display: flex; flex-direction: column">
+    <div class="update_box" style="display: flex; flex-direction: column">
       <p>2.값 편집</p>
       <table>
         <thead>
@@ -33,7 +40,7 @@
         <tbody class="values_box"></tbody>
       </table>
 
-      <button type="button" style="margin-left: auto" onclick="values_update()">
+      <button type="button" style="margin-left: auto" onclick="updateValue()">
         Apply
       </button>
     </div>
@@ -45,12 +52,12 @@
         <button type="button" onclick="addValue()">Add</button>
       </div>
     </div>
-    <div class="update_Box">
+    <div class="detail_Box">
       <p>4.값 고급 편집</p>
       <div class="">
-        <textarea id="detail_area"> </textarea>
+        <textarea id="detail_area"></textarea>
       </div>
-      <button type="button">Apply</button>
+      <button type="button" onclick="update_detailBox()">Apply</button>
     </div>
   </section>
 </div>

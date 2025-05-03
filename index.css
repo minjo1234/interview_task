@@ -27,11 +27,11 @@ input[type="number"] {
 #graph {
   display: flex;
   align-items: flex-end;
-  gap: 1rem;
+  gap: 2rem;
   height: 300px;
   border-left: 1px solid #000;
   border-bottom: 1px solid #000;
-  padding: 0.7rem;
+  padding: 0.5rem 1rem;
 }
 
 #graph > div {
@@ -41,54 +41,63 @@ input[type="number"] {
   height: 100%;
 }
 
+#x-axis {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.4rem;
+}
+
+#x-axis .x-label {
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
 .bar {
   background-color: #a9a9a9;
   text-align: center;
+  min-width: 30px;
   color: white;
-}
-
-.label {
-  text-align: center;
 }
 
 /* delete */
 
-.delete_box table thead {
+.update_box table thead {
   color: #fff;
   background-color: #696969;
 }
 
-.delete_box table tbody tr:nth-child(odd),
-.delete_box table tbody tr:nth-child(odd) input {
+.update_box table tbody tr:nth-child(odd),
+.update_box table tbody tr:nth-child(odd) input {
   background-color: #a9a9a9;
   border: none;
   text-align: center;
 }
 
-.delete_box table tbody tr:nth-child(even),
-.delete_box table tbody tr:nth-child(even) input {
+.update_box table tbody tr:nth-child(even),
+.update_box table tbody tr:nth-child(even) input {
   background-color: #d3d3d3;
   border: none;
   text-align: center;
 }
 
-.delete_box table thead th:first-child {
+.update_box table thead th:first-child {
   width: 20%;
 }
 
-.delete_box table thead th:nth-child(2) {
+.update_box table thead th:nth-child(2) {
   width: 70%;
 }
 
-.delete_box table thead th:last-child {
+.update_box table thead th:last-child {
   width: 10%;
 }
 
-.delete_box table tbody td {
+.update_box table tbody td {
   text-align: center;
 }
 
-.delete_box table {
+.update_box table {
   width: 100%;
 }
 
@@ -98,6 +107,6 @@ input[type="number"] {
   min-width: 300px;
 }
 
-#graph_section > div > p {
+section > div > p {
   font-size: 1.5rem;
 }
